@@ -3,7 +3,7 @@ import Item from "./Item";
 
 function App() {
   const [inputText, setInputText] = useState("");
-  const [toDoList, setToDoList] = useState(["Click me to strikethrough; \n click again to delete :D"]);
+  const [toDoList, setToDoList] = useState(["Click me to strikethrough", "Click again to delete :D"]);
   function handleChange(event){
     setInputText(event.target.value);
   }
