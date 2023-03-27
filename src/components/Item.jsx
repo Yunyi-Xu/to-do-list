@@ -3,14 +3,8 @@ import React, {useState} from "react";
 function Item(props){
   const [isCrossed, setCrossed] = useState(false);
   function handleClick(){
-    if (!isCrossed){
-      setCrossed(true);
-      
-    }
-    else{
-      setCrossed(false);
-      /* props.onChecked(props.id); */
-    }
+    setCrossed(!isCrossed);
+    /* props.onChecked(props.id); */
     
   }
   return (

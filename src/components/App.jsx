@@ -8,8 +8,9 @@ function App() {
     setInputText(event.target.value);
   }
   function handleClick(){
-    
-    setToDoList([...toDoList, inputText]);
+    if (inputText.trim()){
+      setToDoList([...toDoList, inputText]);
+    }
     setInputText("");
 
   }
