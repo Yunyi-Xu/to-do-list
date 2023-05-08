@@ -19,11 +19,7 @@ function Item(props){
       >
       {props.value}
     </li>
-    <button 
-      onClick={handleDelete} 
-      style={{marginLeft: 'auto'}}>
-      Clear
-      </button>
+    
 
     </div>
     
