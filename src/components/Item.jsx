@@ -7,13 +7,26 @@ function Item(props){
     /* props.onChecked(props.id); */
     
   }
+  function handleDelete(){
+    props.onDeleted(props.id);
+
+  }
   return (
+    <div style={{ display: "flex" }}>
     <li 
       style={{textDecorationLine: isCrossed ? "line-through":"none"}}
       onClick={handleClick}
       >
       {props.value}
     </li>
+    <button 
+      onClick={handleDelete} 
+      style={{marginLeft: 'auto'}}>
+      Clear
+      </button>
+
+    </div>
+    
   );
 
 }

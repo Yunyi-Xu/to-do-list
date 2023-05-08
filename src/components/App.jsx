@@ -3,7 +3,7 @@ import Item from "./Item";
 
 function App() {
   const [inputText, setInputText] = useState("");
-  const [toDoList, setToDoList] = useState(["Click to strikethrough", "Click again to un-do"]);
+  const [toDoList, setToDoList] = useState(["Click to strikethrough", "Click again to un-strikethrough"]);
   function handleChange(event){
     setInputText(event.target.value);
   }
@@ -14,8 +14,12 @@ function App() {
     setInputText("");
 
   }
-  function handleClear(){
+  function handleClearAll(){
     setToDoList([]);
+  }
+  function handleClear(index){
+    deleteItem(index);
+
   }
   function deleteItem(id) {
     setToDoList(prevItems => {
@@ -29,7 +33,7 @@ function App() {
     <div className="container">
       <div className="heading" style={{ display: "flex" }}> 
         <h1>To-Do List</h1>
-        <button onClick={handleClear} style={{marginLeft: 'auto'}}>Clear All</button>
+        <button onClick={handleClearAll} style={{marginLeft: 'auto'}}>Clear All</button>
       </div>
       <div className="form">
         <input type="text" onChange={handleChange} value={inputText}/>
@@ -40,12 +44,18 @@ function App() {
       <div>
         <ul>
           {toDoList.map((toDoItem, index) => (
-            <Item 
-              key={index}
-              id={index}
-              value={toDoItem}
-              onChecked={deleteItem}
-            />
+            <div    >
+              <Item 
+              key={index} id={index}
+               
+                value={toDoItem}
+                onDeleted={deleteItem}
+                
+              />
+              
+
+            </div>
+            
             ))}
         </ul>
       </div>
